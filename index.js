@@ -2,8 +2,10 @@ const express = require('express')
 const app = express()
 const PORT = 3005;
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 const path = require('path')
 const bcrypt = require('bcrypt')
+app.use(cors());
 app.use(express.json())
 const {open} = require('sqlite')
 const sqlite3 = require('sqlite3')
