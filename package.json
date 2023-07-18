@@ -2,10 +2,10 @@
   "name": "node-projects",
   "version": "1.0.0",
   "description": "",
-  "main": "authentication.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon authentication.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
