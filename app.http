@@ -1,0 +1,22 @@
+POST http://localhost:3005/users/register/
+Content-Type: application/json
+
+{
+    "username": "veda",
+    "password": "veda@123",
+    "age" : 21,
+    "gender" : "MALE",
+    "location" : "Rajahmundry"
+}
+###
+POST http://localhost:3005/users/login/ 
+Content-Type: application/json
+
+{
+    "username" : "veda",
+    "password" : "veda@123"
+}
+###
+GET http://localhost:3005/users/
+Authorization:bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZlZGEiLCJpYXQiOjE2ODY5ODM4NDF9.pBk-NLUyntc85cZmtP1MkuyjcZwf0bRrD5-Yk4rubfU
+###
