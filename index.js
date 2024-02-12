@@ -4,7 +4,7 @@ const PORT = 3005;
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const path = require('path')
-const bcrypt = require('bcrypt')
+// const bcrypt = require('bcrypt')
 app.use(cors());
 app.use(express.json())
 const {open} = require('sqlite')
@@ -28,14 +28,14 @@ initializeServer();
 app.post('/users/register', async (req,res) => {
     const {username,password,age,gender,location} = req.body;
     const q1 = `select * from user where username = '${username}' ;`;
-    const hashedpwd = await bcrypt.hash(password,10);
+    // const hashedpwd = await bcrypt.hash(password,10);
     const qres = await db.get(q1);
     if (qres === undefined){
         const q2  = `
         insert into user(username,password,age,gender,location)
         values(
             '${username}',
-            '${hashedpwd}',
+            '${password}',
              ${age},
             '${gender}',
             '${location}'
@@ -60,8 +60,8 @@ app.post('/users/login/',async (req,res) => {
         res.send('No such user exists!')
     }
     else{
-        const unhashedpwd = await bcrypt.compare(password,dbres1.password);
-        if (unhashedpwd === true){
+        //const unhashedpwd = await bcrypt.compare(password,dbres1.password);
+        if (password === dbres1.password){
             const payload = {
                 username
             }
